@@ -5,7 +5,6 @@ const itemList = document.getElementById('item-list');
 const clearBtn = document.getElementById('clear');
 const itemFilter = document.getElementById('div-filter');
 const inputFilter = document.getElementById('filter');
-// const itemEdit = document.getElementsByTagName('span');
 
 
 function displayItems() {
@@ -20,18 +19,29 @@ function onAddItemSubmit(e) {
     const newItem = itemInput.value;
     
     //Validate input
-    if (newItem === ''){
-        alert('Please add an item');
-        return;
-    } 
+    // if (newItem === ''){
+    //     alert('Please add an item');
+    //     return;
+    // } 
 
-    if (checkIfItemExists(newItem)){
-        alert('That item already exist!');
+    if (newItem !== ''){
+        var itemObj = {
+            name: newItem,
+            id: new Date().getTime(),
+        };
+    } else {
+        alert('Please add an item');
         return;
     }
 
-   addItemToDOM(newItem); // Add item to DOM
-   addItemToStorage(newItem); // Add item to local storage
+    if (checkIfItemExists(newItem)){
+        alert('That item already exist!');
+        itemForm.reset();
+        return;
+    }
+
+   addItemToDOM(itemObj); // Add item to DOM
+   addItemToStorage(itemObj); // Add item to local storage
    checkUI();
 
    itemForm.reset();
@@ -42,6 +52,7 @@ function addItemToDOM (item){
 
     //Create list item
     const li = document.createElement('li');
+    li.setAttribute('id', item.id);
     const div = document.createElement('div');
     const span = document.createElement('span');
     span.setAttribute('contenteditable','');
@@ -52,7 +63,7 @@ function addItemToDOM (item){
     li.appendChild(div);
     div.appendChild(checkbox);
     div.appendChild(span);
-    span.appendChild(document.createTextNode(item));
+    span.appendChild(document.createTextNode(item.name));
     li.appendChild(button);
 
     itemList.append(li); // Add li to DOM
@@ -107,31 +118,58 @@ function onClickItem(e){
         removeItem(e.target.parentElement.parentElement);
 
     } else if(e.target.hasAttribute('contenteditable')) {
-        const updatedItem = e.target.textContent;
-       
-        // const btnEdit = e.target.parentElement.nextElementSibling;
-        // btnEdit.innerHTML = '<i class="fa-solid fa-pen"></i> ';
-        // console.log(btnEdit);
-
-       removeItemFromStorage(e.target.textContent);
-       addItemToStorage(updatedItem);
+        
+        e.target.addEventListener("keydown", function (e) {
+            if (e.keyCode === 13) {
+        
+                updateItem(e.target);
+            }
+          });
+        
 
     } else if(e.target.type === 'checkbox'){
-        const checkbox = e.target;
+        markItemComplete(e.target);
+    }
+    
+}
 
-        if (checkbox.checked){
-            e.target.parentElement.parentElement.classList.add('item-complete');
-            e.target.nextElementSibling.removeAttribute('contenteditable');
-        } else {
-            e.target.parentElement.parentElement.classList.remove('item-complete');
-            e.target.nextElementSibling.setAttribute('contenteditable','');
-        }
+function updateItem(item){
+    let itemStorage = getItemfromStorage();
+    const itemID = item.parentElement.parentElement.id; //Get parent element ID
+    const itemtoEdit = itemStorage.find((i) => i.id === parseInt(itemID)); //Filter object with the ID of selected element
+
+    if (checkIfItemExists(item.textContent)){
+        alert('That item already exist!');
+        location.reload()
+        return;
+    } else if (item.textContent === ''){
+        alert('Item cannot be an empty string!');
+        location.reload();
+        return;
+    } else {
+        itemtoEdit.name = item.textContent;
+        localStorage.setItem('items', JSON.stringify(itemStorage));
+    }
+    
+}
+
+function markItemComplete (item){
+    const checkbox = item;
+
+    if (checkbox.checked){
+        item.parentElement.parentElement.classList.add('item-complete');
+        item.nextElementSibling.removeAttribute('contenteditable');
+    } else {
+        item.parentElement.parentElement.classList.remove('item-complete');
+        item.nextElementSibling.setAttribute('contenteditable','');
     }
 }
 
 function checkIfItemExists(item) {
     const itemStorage = getItemfromStorage();
-    return itemStorage.includes(item);
+    const itemDuplicate = itemStorage.find((i) => i.name === item);
+
+    return itemStorage.includes(itemDuplicate);  
 }
 
 function removeItem(item){
@@ -141,7 +179,7 @@ function removeItem(item){
         item.remove();
 
         //Remove item from local storage
-        removeItemFromStorage(item.textContent);
+        removeItemFromStorage(item);
 
         checkUI();
     }
@@ -156,15 +194,18 @@ function clearItems(e){
         // Clear from Local Storage
         localStorage.removeItem('items');
 
+        itemForm.reset();
+
         checkUI();
     }
 }
 
 function removeItemFromStorage(item) {
     let itemStorage = getItemfromStorage();
+    const itemID = item.id;
   
     // Filter out item to be removed
-    itemStorage = itemStorage.filter((i) => i !== item);
+    itemStorage = itemStorage.filter((i) => i.id !== parseInt(itemID));
   
     // Re-set to localstorage
     localStorage.setItem('items', JSON.stringify(itemStorage));
