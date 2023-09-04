@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css"
+      integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <title>Simple Task List</title>
+  </head>
+  <body>
+    <header class ="main-header">
+      <div class="container">
+        <div class="logo">
+          <img src="images/logo.svg" alt="" />
+          <h1>Task List</h1>  
+        </div>
+        <form id="item-form" class="item-form">
+          <input type="text" class="form-input"  id="item-input" name="item" placeholder="Add Item"/>
+          <button type="submit" class="btn btn-add">
+            <i class="fa-solid fa-plus"></i> Add Item
+          </button>
+        </form>
+      </div>
+    </header>
+
+    <div class="items container" id="item-container">
+      <!-- <div class="empty-state">
+        <img src="images/empty.jpg" alt="Empty state - task board sleeping">
+        <h3>Did someone say 'to-do list'? Nah, I think they meant 'tah-dah' list, because there's nothing to do!</h3>
+      </div> -->
+      <div class="filter" id="div-filter">
+        <input type="text" class="input-filter" id="filter" placeholder="Filter Items" />
+        <i class="fa-solid fa-search"></i>
+      </div>
+    
+      <ul id="item-list" class="items">
+        <!-- <li class="item-complete">
+          <div>
+            <input type="checkbox">
+            <span>Create Task List project</span>
+          </div>
+         
+          <button class="remove-item btn-remove">
+            <i class="fa-solid fa-xmark"></i>
+          </button>
+        </li>
+        <li>
+          <div>
+            <input  type="checkbox">
+            <span>Random joke generator mini-project</span>
+          </div>
+         
+          <button class="remove-item btn-remove">
+            <i class="fa-solid fa-xmark"></i>
+          </button>
+        </li>
+        <li>
+          <div>
+            <input  type="checkbox">
+            <span>Random User generator mini-project</span>
+          </div>
+         
+          <button class="remove-item btn-remove">
+            <i class="fa-solid fa-xmark"></i>
+          </button>
+        </li>
+        <li>
+          <div>
+            <input  type="checkbox" name="complete" id="complete">
+            <span>Flixx Movie website project</span>
+          </div>
+         
+          <button class="remove-item btn-remove">
+            <i class="fa-solid fa-xmark"></i>
+          </button>
+        </li> -->
+      </ul>
+      <button id="clear" class="btn-clear">Clear All</button>
+    </div>
+    
+
+    <script src="script.js"></script>
+  </body>
+</html>
