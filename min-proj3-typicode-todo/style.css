@@ -1,0 +1,103 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  font-family: 'Poppins';
+  line-height: 1.6;
+}
+
+header {
+  margin-bottom: 32px;
+  background-color: #6263FB;
+  background: linear-gradient(130deg, #6263FB 0%, #9C62FB 100%);
+  background: -o-linear-gradient(130deg, #6263FB 0%, #9C62FB 100%);
+  background: -moz-linear-gradient(130deg, #6263FB 0%, #9C62FB 100%);
+  background: -webkit-linear-gradient(130deg, #6263FB 0%, #9C62FB 100%);
+  padding: 10px 40px;
+}
+
+header h1 {
+  color: #fff;
+}
+
+main {
+  padding: 0 40px;
+}
+
+button {
+  padding: 15px;
+  background: #6263FB;
+  color: white;
+  border-radius: 5px;
+  width: 100px;
+  border: none;
+  font-size: 16px;
+}
+
+button:hover {
+  background: #3e3ec5;
+}
+
+input[type='text'] {
+  padding: 10px;
+  border-radius: 5px;
+  width: 300px;
+  height: 46px;
+  border: 1px #ccc solid;
+  margin-right: 5px;
+  font-size: 16px;
+}
+
+#todo-list {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 20px;
+}
+
+#todo-list > div {
+  border: solid 1px #bcbcbc;
+  border-radius: 5px;
+  padding: 16px;
+  margin: 5px;
+  cursor: pointer;
+  animation: highlight 1s ease-in-out;
+}
+
+@keyframes highlight
+{
+from {background: rgba(156, 98, 251, 0.25);}
+60% {background: rgba(156, 98, 251, 0.10);}
+to {background:#fff;}
+}
+
+i.fa-regular.fa-circle-check {
+  color: rgba(117, 113, 144, 0.50);
+  margin-right: 10px;
+}
+
+i.fa-solid.fa-circle-check {
+  color: #6263FB;
+  margin-right: 10px;
+}
+
+i.fa-solid.fa-trash-can {
+  color: rgba(117, 113, 144, 0.50);
+  margin-left: 15px;
+}
+
+i.fa-regular.fa-circle-check:hover,  i.fa-solid.fa-trash-can:hover{
+  color: rgba(117, 113, 144, 100);
+}
+
+.done {
+  background: #f4f4f4;
+  color: rgba(117, 113, 144, 0.50);
+  text-decoration: line-through;
+}

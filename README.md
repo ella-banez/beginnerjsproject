@@ -4,3 +4,4 @@ These are my first javascript projects from the course 'Modern Javascript' by Br
 2. Shopping List
 3. Chuck Norris Random Joke Generator (mini-project)
 4. Random User generator (mini-project)
+5. Typicode To do (mini-project)
