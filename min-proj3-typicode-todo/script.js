@@ -66,7 +66,11 @@ const createTodo = (e) => {
       .then((res) => res.json())
       .then((data) => addTodoToDOM(data));
       
-      addAudio.play();
+      setTimeout(function() {
+        addAudio.play();
+      }, 1000)
+        
+        
       
   } else {
     alert("Please add a task!");
