@@ -1,10 +1,20 @@
 function fetchUser() {
   showSpinner();
   fetch('https://randomuser.me/api/')
-  .then((response) => response.json())
+  .then((response) => {
+    if (!response.ok){
+      throw new Error ('Request Failed');
+    }
+    return response.json()
+  })
   .then((data) => {
     hideSpinner();
     displayUser(data.results[0]);
+  })
+  .catch((error) => {
+    hideSpinner();
+    document.querySelector('#user').innerHTML = `<p class="text-xl text-center text-red-500">${error}<p/>`;
+    document.body.style.backgroundColor = 'rgb(254, 39, 1, 0.38)';
   });
 }
 
