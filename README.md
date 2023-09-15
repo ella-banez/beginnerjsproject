@@ -2,12 +2,13 @@
 These are my first javascript projects from the course 'Modern Javascript' by Brad Traversy on Udemy
 
 Mini-Projects
-1. Key code 
-2. Chuck Norris Random Joke Generator 
-3. Random User generator
-4. Typicode To do 
+1. Chuck Norris Random Joke Generator 
+2. Random User generator
+3. Typicode To do
+4. Animated Clock 
 
 
 Main Projects
-1. Todo list
-2. Flixx Movie app
+1. Key code
+2. Todo list
+3. Flixx Movie app
