@@ -6,6 +6,7 @@ Mini-Projects
 2. Random User generator
 3. Typicode To do
 4. Animated Clock (Canvas API and requestAnimationFrame)
+5. Drum Machine (Audio web API)
 
 
 Main Projects
