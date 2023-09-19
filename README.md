@@ -8,6 +8,7 @@ Mini-Projects
 4. Animated Clock (Canvas API and requestAnimationFrame)
 5. Drum Machine (Audio web API)
 6. Video Player (Video API)
+7. Web Animation (Web animation API)
 
 
 Main Projects
