@@ -9,6 +9,7 @@ Mini-Projects
 5. Drum Machine (Audio web API)
 6. Video Player (Video API)
 7. Web Animation (Web animation API)
+8. Speech recognition 
 
 
 Main Projects

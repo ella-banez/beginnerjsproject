@@ -1,0 +1,39 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700,800,900&display=swap');
+
+body {
+  font-family: 'Arial', sans-serif;
+  font-size: 18px;
+  height: 100vh;
+}
+
+h1 {
+  text-align: center;
+  margin-top: 100px;
+}
+
+#hints p {
+  text-align: center;
+}
+
+#avail-colors {
+  margin-bottom: 40px;
+}
+
+#avail-colors span {
+  font-size: 13px;
+  padding: 5px;
+  margin: 2px;
+  display: inline-block;
+  border-radius: 5px;
+}
+
+.output {
+  text-align: center;
+  background-color: whitesmoke;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.output-error {
+  background-color: tomato;
+}
