@@ -10,6 +10,7 @@ Mini-Projects
 6. Video Player (Video API)
 7. Web Animation (Web animation API)
 8. Speech recognition 
+9. Speeach Synthesis
 
 
 Main Projects
