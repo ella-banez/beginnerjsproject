@@ -11,6 +11,7 @@ Mini-Projects
 7. Web Animation (Web animation API)
 8. Speech recognition 
 9. Speeach Synthesis
+10. OOP mini challenge (Constructor, prototype)
 
 
 Main Projects
