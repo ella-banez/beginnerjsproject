@@ -12,6 +12,7 @@ Mini-Projects
 8. Speech recognition 
 9. Speeach Synthesis
 10. OOP mini challenge (Constructor, prototype)
+11. Webpack starter setup
 
 
 Main Projects
@@ -19,3 +20,5 @@ Main Projects
 2. Todo list
 3. Flixx Movie app
 4. Simple Music player (Audio web API)
+5. Tracalorie app
+6. Tracalorie app - refactored with webpack https://github.com/ella-banez/tracalorie-webpack
